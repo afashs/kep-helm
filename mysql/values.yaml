@@ -102,11 +102,11 @@ auth:
   ## @param auth.createDatabase Wheter to create the .Values.auth.database or not
   ## ref: https://github.com/bitnami/containers/tree/main/bitnami/mysql#creating-a-database-on-first-run
   ##
-  createDatabase: true
+  createDatabase: false
   ## @param auth.database Name for a custom database to create
   ## ref: https://github.com/bitnami/containers/tree/main/bitnami/mysql#creating-a-database-on-first-run
   ##
-  database: "my_database"
+  database: ""
   ## @param auth.username Name for a custom user to create
   ## ref: https://github.com/bitnami/containers/tree/main/bitnami/mysql#creating-a-database-user-on-first-run
   ##
@@ -441,7 +441,7 @@ primary:
   service:
     ## @param primary.service.type MySQL Primary K8s service type
     ##
-    type: ClusterIP
+    type: NodePort
     ## @param primary.service.ports.mysql MySQL Primary K8s service port
     ##
     ports:
@@ -450,7 +450,7 @@ primary:
     ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
     ##
     nodePorts:
-      mysql: ""
+      mysql: "3306"
     ## @param primary.service.clusterIP MySQL Primary K8s service clusterIP IP
     ## e.g:
     ## clusterIP: None
